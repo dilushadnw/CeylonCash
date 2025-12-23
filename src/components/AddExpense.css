@@ -55,6 +55,15 @@
   padding: 20px;
 }
 
+.modal-content .error-message {
+  background: #fee;
+  color: #c33;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+}
+
 .modal-content .form-group {
   margin-bottom: 20px;
 }

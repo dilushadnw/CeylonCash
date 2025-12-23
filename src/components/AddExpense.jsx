@@ -7,14 +7,17 @@ const AddExpense = ({ category, categories, onAdd, onClose }) => {
   const [selectedCategory, setSelectedCategory] = useState(category?.id || '');
   const [date, setDate] = useState(today);
   const [description, setDescription] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!amount || !selectedCategory || !date) {
-      alert('Please fill in required fields');
+      setError('Please fill in required fields');
       return;
     }
+    
+    setError('');
 
     const selectedCat = categories.find(c => c.id === selectedCategory);
     
@@ -35,6 +38,8 @@ const AddExpense = ({ category, categories, onAdd, onClose }) => {
           <h2>Add Expense</h2>
           <button className="close-btn" onClick={onClose}>&times;</button>
         </div>
+        
+        {error && <div className="error-message">{error}</div>}
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
